@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifotronic</title>
+    <link rel="shortcut icon" href="./img/image 2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <style>
+        html,
+
+        .section1 {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            font-size: 18px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            object-fit: cover;
+        }
+
+        .autoplay-progress {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--swiper-theme-color);
+        }
+
+        .autoplay-progress svg {
+            --progress: 0;
+            position: absolute;
+            left: 0;
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            stroke-width: 4px;
+            stroke: var(--swiper-theme-color);
+            fill: none;
+            stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+            stroke-dasharray: 125.6;
+            transform: rotate(-90deg);
+        }
+
+        .autoplay-progress {
+            display: none;
+        }
+
+        .swiper-pagination-bullet {
+            width: 30px;
+            height: 2px;
+            border-radius: 0px;
+            background: #D9D9D9;
+        }
+
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            /* position: absolute;
+            top: var(--swiper-navigation-top-offset, 94%);
+            width: calc(var(--swiper-navigation-size)/ 9 * 210);
+            height: var(--swiper-navigation-size);
+            margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--swiper-navigation-color, var(--swiper-theme-color)); */
+            display: none;
+        }
+
+        .swiper-horizontal>.swiper-pagination-bullets,
+        .swiper-pagination-bullets.swiper-pagination-horizontal,
+        .swiper-pagination-custom,
+        .swiper-pagination-fraction {
+            bottom: var(--swiper-pagination-bottom, 48px);
+            top: var(--swiper-pagination-top, auto);
+            left: 0px;
+            width: 30%;
+        }
+
+        @media(max-width:1440px) {
+            .section1 {
+                width: 100%;
+            }
+
+            .con1 {
+                margin: 20px;
+            }
+        }
+
+        @media(max-width:1024px) {
+            .img {
+                width: 230px;
+                height: 230px;
+            }
+
+            .con1 {
+                width: 600px;
+                height: 300px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .con1 h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+    <style>
+        html,
+
+
+        .section3 .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .section3 .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section3 .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+
+        .section3 .swiper {
+            width: 100%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section3 .swiper-slide {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section3 .mySwiper2 {
+            height: 720px;
+            width: 100%;
+        }
+
+        .section3 .mySwiper3 {
+            height: 16%;
+            box-sizing: border-box;
+            padding: 10px 10%;
+        }
+
+        .section3 .mySwiper3 .swiper-slide {
+            width: 25%;
+            height: 100%;
+            opacity: 0.4;
+            width: 240px;
+            margin-right: 10px;
+            border-radius: 50px;
+        }
+
+        @media(max-width:600px) {
+            .section3 .mySwiper3 .swiper-slide {
+                width: 250px;
+                height: 100%;
+                opacity: 0.4;
+                margin-right: 10px;
+                border-radius: 50px;
+            }
+        }
+
+        .section3 .mySwiper3 .swiper-slide-thumb-active {
+            opacity: 1;
+            border: 2px solid #D1292E;
+        }
+
+        .section3 .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section3 {
+            width: 1440px;
+            height: 870px;
+        }
+
+
+
+        @media(max-width:1440px) {
+            .section3 {
+                width: 100%;
+            }
+        }
+
+        .section3 .swiper-button-next,
+        .swiper-button-prev {
+            position: absolute;
+            top: var(--swiper-navigation-top-offset, 50%);
+            width: calc(var(--swiper-navigation-size)/ 147 * 210);
+            height: var(--swiper-navigation-size);
+            margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+            z-index: 10;
+            cursor: pointer;
+            width: 70px;
+            background-color: white;
+            border-radius: 50px;
+            height: 70px;
+            border: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--swiper-navigation-color, var(--swiper-theme-color));
+        }
+
+        .swiper-button-next:after,
+        .swiper-rtl .swiper-button-prev:after {
+            content: 'next';
+            color: red;
+        }
+
+        .swiper-button-prev:after,
+        .swiper-rtl .swiper-button-next:after {
+            content: 'prev';
+            color: red;
+        }
+
+        @media(max-width:768px) {
+            .swiper-slide img {
+                display: none;
+                object-fit: cover;
+            }
+
+            @media(max-width:425px) {
+                .con1 {
+                    width: 600px;
+                    height: 490px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            }
+        }
+
+        @media(max-width:500px) {
+            .section3 .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .h8 {
+                width: 310px;
+                height: 420px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="headerblock">
+            <header>
+                <div class="icon">
+                    <img src="./img/telegram-cloud-document-2-5231159747213796882 1 (1).svg" alt="" class="t">
+                    <div class="pal">
+                        <p>Лабораторное оборудование и расходные материалы</p>
+                    </div>
+                </div>
+                <div class="head">
+                    <a href="" class="l1">Lifotronic</a>
+                    <a href="./index2.html" class="e b">Каталог </a>
+                    <a href="" class="l2">Новости</a>
+                    <a href="" class="l3">Сервисный центр</a>
+                    <a href="" class="l4">Контакты</a>
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="Поиск...">
+                    <span><img src="./img/Group (2).svg" alt=""></span>
+                </div>
+                <div class="nav-icon6">
+                    <span></span>
+                </div>
+                <div class="menu">
+                    <a href="" class="l11">Lifotronic</a>
+                    <a href="./index2.html" class="e">Каталог </a>
+                    <a href="" class="l22">Новости</a>
+                    <a href="" class="l33">Сервисный центр</a>
+                    <a href="" class="l44">Контакты</a>
+                </div>
+                <div class="nez1">
+                    <div class="nez2">
+                        <a href="./index2.html" class="j">IVD Products</a>
+                        <a href="./index2.html" class="j">Therapeutic Products</a>
+                        <a href="./index2.html" class="j">Medical & Aesthetic Laser</a>
+                    </div>
+                    <div class="nez3">
+                        <a href="./index2.html">IVD Products</a>
+                        <a href="./index2.html">Therapeutic Products</a>
+                        <a href="./index2.html">Medical & Aesthetic Laser</a>
+                    </div>
+                </div>
+            </header>
+
+        </div>
+
+        <div class="section1">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="analiz">
+                            <h1>Анализатор гемоглобина Lifotromic H9</h1>
+                            <p>С учётом сложившейся международной обстановки, существующая теория предполагает
+                                независимые способы реализации экономической целесообразности принимаемых решений. </p>
+                            <button>Подробнее</button>
+                        </div>
+                        <img src="./img/lifotronic_h9_bannerphotoAid-removed-background_1-removebg-preview.png" alt=""
+                            class="img">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="analiz">
+                            <h1>Анализатор гемоглобина Lifotromic H9</h1>
+                            <p>С учётом сложившейся международной обстановки, существующая теория предполагает
+                                независимые способы реализации экономической целесообразности принимаемых решений. </p>
+                            <button>Подробнее</button>
+                        </div>
+                        <img src="./img/lifotronic_h9_bannerphotoAid-removed-background_1-removebg-preview.png" alt=""
+                            class="img">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="analiz">
+                            <h1>Анализатор гемоглобина Lifotromic H9</h1>
+                            <p>С учётом сложившейся международной обстановки, существующая теория предполагает
+                                независимые способы реализации экономической целесообразности принимаемых решений. </p>
+                            <button>Подробнее</button>
+                        </div>
+                        <img src="./img/lifotronic_h9_bannerphotoAid-removed-background_1-removebg-preview.png" alt=""
+                            class="img">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="analiz">
+                            <h1>Анализатор гемоглобина Lifotromic H9</h1>
+                            <p>С учётом сложившейся международной обстановки, существующая теория предполагает
+                                независимые способы реализации экономической целесообразности принимаемых решений. </p>
+                            <button>Подробнее</button>
+                        </div>
+                        <img src="./img/lifotronic_h9_bannerphotoAid-removed-background_1-removebg-preview.png" alt=""
+                            class="img">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="autoplay-progress">
+                    <svg viewBox="0 0 48 48">
+                        <circle cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="section2">
+            <div class="Litr">
+                <div></div>
+                <h1>Lifotronic</h1>
+                <p>Основанная в Шэньчжэне в 2008 году с целью стать мировым лидером в отрасли здравоохранения, компания
+                    Lifotronic превратилась в бренд премиум-класса с сетью продаж и обслуживания в стране и за рубежом.
+                </p>
+                <p> Как профессиональный разработчик, производитель и продавец широкого спектра медицинских устройств
+                    как для диагностики, так и для терапии, Lifotronic нанимает более 1500 сотрудников и работает через
+                    свою штаб-квартиру в Шэньчжэне и четыре завода, стратегически расположенных в материковом Китае,
+                    которые в общей сложности имеют рабочую площадь более 150 000 м 2 и способны производить 100 000
+                    устройств ежегодно.</p>
+                <p> На сегодняшний день продукция Lifotronic экспортируется более чем в 90 стран, обслуживает более 15
+                    000 больниц и имеет более 100 000 установленных систем по всему миру.</p>
+            </div>
+        </div>
+        <div class="section3">
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="lol">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <div class="h8">
+                            <div class="span3"></div>
+                            <h2>H8</h2>
+                            <h5>Анализатор гемоглобина</h5>
+                            <p>Полностью автоматизированный анализатор гемоглобина H8 сообщает результат HbA1c за 130
+                                секунд с распознаванием вариантов гемоглобина, обеспечивая выдающееся решение для
+                                быстрого и надежного мониторинга диабета. Без пробоподготовки и безоперационной работы.
+                                Образцы с вариантами гемоглобина могут быть подвергнуты углубленному анализу в рамках
+                                программы β-талассемии.</p>
+                            <button>Подробнее</button>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="lol">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <div class="h8">
+                            <div class="span3"></div>
+                            <h2>H9</h2>
+                            <h5>Анализатор гемоглобина</h5>
+                            <p>Полностью автоматизированный анализатор гемоглобина H8 сообщает результат HbA1c за 130
+                                секунд
+                                с распознаванием вариантов гемоглобина, обеспечивая выдающееся решение для быстрого и
+                                надежного мониторинга диабета. Без пробоподготовки и безоперационной работы. Образцы с
+                                вариантами гемоглобина могут быть подвергнуты углубленному анализу в рамках программы
+                                β-талассемии.</p>
+                            <button>Подробнее</button>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="lol">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <div class="h8">
+                            <div class="span3"></div>
+                            <h2>H10</h2>
+                            <h5>Анализатор гемоглобина</h5>
+                            <p>Полностью автоматизированный анализатор гемоглобина H8 сообщает результат HbA1c за 130
+                                секунд
+                                с распознаванием вариантов гемоглобина, обеспечивая выдающееся решение для быстрого и
+                                надежного мониторинга диабета. Без пробоподготовки и безоперационной работы. Образцы с
+                                вариантами гемоглобина могут быть подвергнуты углубленному анализу в рамках программы
+                                β-талассемии.</p>
+                            <button>Подробнее</button>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="lol">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <div class="h8">
+                            <div class="span3"></div>
+                            <h2>H11</h2>
+                            <h5>Анализатор гемоглобина</h5>
+                            <p>Полностью автоматизированный анализатор гемоглобина H8 сообщает результат HbA1c за 130
+                                секунд
+                                с распознаванием вариантов гемоглобина, обеспечивая выдающееся решение для быстрого и
+                                надежного мониторинга диабета. Без пробоподготовки и безоперационной работы. Образцы с
+                                вариантами гемоглобина могут быть подвергнуты углубленному анализу в рамках программы
+                                β-талассемии.</p>
+                            <button>Подробнее</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div thumbsSlider="" class="swiper mySwiper3">
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="f">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <h2>ECDD000</h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="f">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <h2>ESD4000</h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="f">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <h2>EFVV8000</h2>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="f">
+                            <img src="./img/image 2.jpg" alt="">
+                        </div>
+
+                        <h2>ECDF8000</h2>
+                    </div>
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+        </div>
+
+        <div class="section4">
+            <div class="new">
+                <div class="line"></div>
+                <div class="novo1">
+                    <h1>Новости</h1>
+                    <button>Все новости</button>
+                </div>
+                <div class="novo2">
+                    <div class="sec1">
+                        <img src="./img/Rectangle 12.jpg" alt="">
+                        <p>11.08.2022</p>
+                        <h3>Ждём на нашем стенде на выставке «Диагнополис-2022»</h3>
+                        <a href="">Подробнее</a>
+                    </div>
+                    <div class="sec1">
+                        <img src="./img/Rectangle 12 (1).jpg" alt="">
+                        <p>07.06.2021</p>
+                        <h3>Набор реагентов для выявления антигена к вирусу COVID-19</h3>
+                        <a href="">Подробнее</a>
+                    </div>
+                    <div class="sec1">
+                        <img src="./img/Rectangle 12 (2).jpg" alt="">
+                        <p>17.05.2021</p>
+                        <h3>Обучение для инженеров сервисной службы DIRUI</h3>
+                        <a href="">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section5">
+            <div class="con5">
+                <div class="span2"></div>
+                <div class="nez">
+                    <h1>Услуги</h1>
+                    <button>Все услуги</button>
+                </div>
+                <div class="sec2">
+                    <div class="item">
+                        <img src="./img/Headset.png" alt="">
+                        <p>Консультация</p>
+                    </div>
+                    <div class="item">
+                        <img src="./img/File-verified.png" alt="">
+                        <p>Обзор сервисного центра</p>
+                    </div>
+                    <div class="item">
+                        <img src="./img/in-protect.png" alt="">
+                        <p>Техническое обслуживание</p>
+                    </div>
+                    <div class="item">
+                        <img src="./img/Group (3).png" alt="">
+                        <p>Запчасти</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="con6">
+                <div class="contener1">
+                    <div class="icon">
+                        <img src="./img/telegram-cloud-document-2-5231159747213796882 1 (1).svg" alt="" class="t">
+                        <div class="pal">
+                            <p>Лабораторное оборудование и расходные материалы</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contener2">
+                    <div class="img2">
+                        <img src="./img/Place-3.png" alt="">
+                    </div>
+                    <div class="adr">
+                        <h5>г. Екатеринбург,
+                            ул. Ясная, 35</h5>
+                        <p>Тел.: +7 (343) 311-11-19,
+                            E-mail: dirui@omt-ural.ru</p>
+                    </div>
+                </div>
+                <div class="contener2">
+                    <div class="img2">
+                        <img src="./img/Place-3.png" alt="">
+                    </div>
+                    <div class="adr">
+                        <h5>г. Москва,
+                            ул. Новодмитровская, 5А стр. 1</h5>
+                        <p>Тел.: +7 (495) 287-89-80,
+                            E-mail: micros@micros-russia.com</p>
+                    </div>
+                </div>
+                <div class="contener2">
+                    <div class="img2">
+                        <img src="./img/Place-3.png" alt="">
+                    </div>
+                    <div class="adr">
+                        <h5>г. Ростов-на-Дону,
+                            пр. Шолохова, 136</h5>
+                        <p>Тел.: +7 (906) 454-03-92,
+                            E-mail: sale@omt-ofd.ru</p>
+                    </div>
+                </div>
+            </div>
+            <p>© 2015 ООО "МО Отдел медицинской техники"Копирование информации с сайта разрешено только с письменного
+                согласия администрации сайта.</p>
+        </div>
+
+
+    </div>
+    <div class="cen">
+        <div class="modal">
+            <img src="./img/Close.jpg" alt="" class="net">
+            <div class="span8"></div>
+            <h2>Хотите узнать цену?</h2>
+            <p>Заполни форму и в ближайшее время с вами свяжется наш менеджер</p>
+            <form action="">
+                <input type="text" name="Имя" placeholder="Ваше имя" class="t1">
+                <input type="text" name="Номер" placeholder="Ваш номер телефона" class="t2">
+                <button type="submit" class="tok">Отправить</button>
+            </form>
+                
+            
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty("--progress", 1 - progress);
+                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                }
+            }
+        });
+    </script>
+    <script>
+        const p = screen.width
+        if (p >= 1200) {
+            var swiper = new Swiper(" .mySwiper3", {
+                loop: true,
+                spaceBetween: 10,
+                slidesPerView: 4,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+        }
+        else if (p >= 800 && p <= 1200) {
+            var swiper = new Swiper(" .mySwiper3", {
+                loop: true,
+                spaceBetween: 10,
+                slidesPerView: 3,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+        }
+        else if (p >= 600 && p <= 800) {
+            var swiper = new Swiper(" .mySwiper3", {
+                loop: true,
+                spaceBetween: 10,
+                slidesPerView: 2,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+        }
+        else if (p >= 200 && p <= 600) {
+            var swiper = new Swiper(" .mySwiper3", {
+                loop: true,
+                spaceBetween: 10,
+                slidesPerView: 1,
+                freeMode: true,
+                watchSlidesProgress: true,
+            });
+        }
+
+
+
+        var swiper2 = new Swiper(" .mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: " .swiper-button-next",
+                prevEl: " .swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+    </script>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
